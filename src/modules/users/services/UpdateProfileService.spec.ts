@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
 
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
-import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider.ts';
+import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 import UpdateProfileService from './UpdateProfileService';
 
 let fakeUsersRepository: FakeUsersRepository;
@@ -50,9 +50,9 @@ describe('UpdateProfile', () => {
     };
 
     // Act and Assert
-    await expect(
-      updateProfileService.execute(userData),
-    ).rejects.toBeInstanceOf(AppError);
+    await expect(updateProfileService.execute(userData)).rejects.toBeInstanceOf(
+      AppError,
+    );
   });
 
   it('should not be able to change to another user email', async () => {
