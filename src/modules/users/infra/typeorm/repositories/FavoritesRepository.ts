@@ -42,8 +42,8 @@ class FavoritesRepository implements IFavoritesRepository {
     return this.ormRepository.save(favorite);
   }
 
-  public async delete(favorite: UsersFavorites): Promise<void> {
-    this.ormRepository.delete(favorite);
+  public async delete(id: string): Promise<void> {
+    this.ormRepository.delete(id);
   }
 }
 
