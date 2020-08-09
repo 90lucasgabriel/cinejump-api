@@ -1,4 +1,4 @@
 export default interface IUserFavoriteDTO {
   user_id: string;
-  favorite_id: string;
+  movie_id: string;
 }

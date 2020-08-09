@@ -6,7 +6,7 @@ import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 interface IRequest {
   user_id: string;
-  favorite_id: string;
+  movie_id: string;
 }
 
 @injectable()
@@ -21,11 +21,11 @@ class UpdateFavoritesService {
 
   public async execute({
     user_id,
-    favorite_id,
+    movie_id,
   }: IRequest): Promise<UsersFavorites | void> {
     const findFavorite = await this.favoritesRepository.find({
       user_id,
-      favorite_id,
+      movie_id,
     });
 
     if (findFavorite) {
@@ -34,7 +34,7 @@ class UpdateFavoritesService {
 
     const favorite = await this.favoritesRepository.create({
       user_id,
-      favorite_id,
+      movie_id,
     });
 
     return this.favoritesRepository.save(favorite);
