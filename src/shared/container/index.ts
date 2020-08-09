@@ -8,6 +8,8 @@ import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepo
 
 import IUserTokensRepository from '@modules/users/repositories/IUserTokensRepository';
 import UserTokensRepository from '@modules/users/infra/typeorm/repositories/UserTokensRepository';
+import IFavoritesRepository from '@modules/users/repositories/IFavoritesRepository';
+import FavoritesRepository from '@modules/users/infra/typeorm/repositories/FavoritesRepository';
 
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
@@ -17,4 +19,9 @@ container.registerSingleton<IUsersRepository>(
 container.registerSingleton<IUserTokensRepository>(
   'UserTokensRepository',
   UserTokensRepository,
+);
+
+container.registerSingleton<IFavoritesRepository>(
+  'FavoritesRepository',
+  FavoritesRepository,
 );
