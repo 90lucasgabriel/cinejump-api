@@ -8,7 +8,7 @@ import profileRouter from '@modules/users/infra/http/routes/profile.routes';
 const routes = Router();
 routes.use('/favorites', favoritesRouter);
 routes.use('/users', usersRouter);
-routes.use('/sessions', sessionsRouter);
+routes.use('/auth', sessionsRouter);
 routes.use('/password', passwordRouter);
 routes.use('/profile', profileRouter);
 
