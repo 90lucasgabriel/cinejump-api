@@ -4,7 +4,7 @@ https://cinejump-api.herokuapp.com
 # Authentication
 ## Login
 - **Method:** POST
-- **URI:** /sessions
+- **URI:** /auth
 - **Authorization:** 
 - **Headers:**
 - **Body:** raw/JSON
