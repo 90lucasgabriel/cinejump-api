@@ -6,7 +6,7 @@ import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 interface IRequest {
   user_id: string;
-  movie_id: string;
+  movie_id: number;
 }
 
 @injectable()

@@ -6,7 +6,7 @@ import IFavoritesRepository from '@modules/users/repositories/IFavoritesReposito
 
 interface IRequest {
   user_id: string;
-  movie_id: string;
+  movie_id: number;
 }
 
 @injectable()
