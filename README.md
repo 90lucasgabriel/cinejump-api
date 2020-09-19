@@ -132,20 +132,21 @@ https://cinejump-api.herokuapp.com
 - **Body:** raw/JSON
 ```json
 {
-  "movie_id": "271110"
+  "movie_id": 271110
 }
 ```
-- **Response - if it doesn't exist and add:** 
+- **Response (Status: 200) - if it doesn't exist and add:** 
 ```json
 {
   "id": "cca1ed20-a596-47f6-845b-ca33b2f825f3",
   "user_id": "3f882ab5-75b5-4e28-a84a-f8666264cb29",
-  "movie_id": "271110",
+  "movie_id": 271110,
   "created_at": "2020-08-09T18:22:53.070Z",
   "updated_at": "2020-08-09T18:22:53.070Z"
 }
 ```
 
-- **Response - if it exists and remove:** 
+- **Response (Status: 204) - if it exists and remove:** 
 ```json
+no content
 ```
