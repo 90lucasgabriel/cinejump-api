@@ -20,11 +20,15 @@ export default class FavoritesController {
     const { movie_id } = request.body;
     const updateFavoritesService = container.resolve(UpdateFavoritesService);
 
-    const user = await updateFavoritesService.execute({
+    const favoriteResponse = await updateFavoritesService.execute({
       user_id,
       movie_id,
     });
 
-    return response.json(classToClass(user));
+    if (!favoriteResponse) {
+      return response.status(204).json();
+    }
+
+    return response.json(classToClass(favoriteResponse));
   }
 }
