@@ -19,7 +19,7 @@ export class CreateUsersFavorites1596925057281 implements MigrationInterface {
           },
           {
             name: 'movie_id',
-            type: 'number',
+            type: 'integer',
           },
           {
             name: 'created_at',
