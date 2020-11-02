@@ -6,7 +6,8 @@ import IFavoritesRepository from '@modules/users/repositories/IFavoritesReposito
 
 interface IRequest {
   user_id: string;
-  movie_id: string;
+  entity_id: string;
+  type_id: number;
 }
 
 @injectable()
@@ -18,11 +19,13 @@ class ShowFavoriteService {
 
   public async execute({
     user_id,
-    movie_id,
+    entity_id,
+    type_id,
   }: IRequest): Promise<UsersFavorites> {
     const favorite = await this.favoritesRepository.find({
       user_id,
-      movie_id,
+      entity_id,
+      type_id,
     });
     if (!favorite) {
       throw new AppError('Favorite not found.');

@@ -17,12 +17,13 @@ export default class FavoritesController {
 
   public async update(request: Request, response: Response): Promise<Response> {
     const user_id = request.user.id;
-    const { movie_id } = request.body;
+    const { entity_id, type_id } = request.body;
     const updateFavoritesService = container.resolve(UpdateFavoritesService);
 
     const user = await updateFavoritesService.execute({
       user_id,
-      movie_id,
+      entity_id,
+      type_id,
     });
 
     return response.json(classToClass(user));

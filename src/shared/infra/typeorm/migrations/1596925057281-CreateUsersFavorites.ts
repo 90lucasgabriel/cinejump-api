@@ -18,8 +18,12 @@ export class CreateUsersFavorites1596925057281 implements MigrationInterface {
             type: 'uuid',
           },
           {
-            name: 'movie_id',
+            name: 'entity_id',
             type: 'varchar',
+          },
+          {
+            name: 'type_id',
+            type: 'smallint',
           },
           {
             name: 'created_at',
