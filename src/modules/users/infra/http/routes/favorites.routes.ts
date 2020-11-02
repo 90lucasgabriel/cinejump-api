@@ -14,7 +14,8 @@ favoritesRouter.post(
   '/',
   celebrate({
     [Segments.BODY]: {
-      movie_id: Joi.number().required(),
+      entity_id: Joi.string().required(),
+      type_id: Joi.number().required(),
     },
   }),
   favoritesController.update,
