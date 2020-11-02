@@ -15,7 +15,10 @@ class UsersFavorites {
   user_id: string;
 
   @Column()
-  movie_id: number;
+  entity_id: number;
+
+  @Column()
+  type_id: number;
 
   @CreateDateColumn()
   created_at: Date;

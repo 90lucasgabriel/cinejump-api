@@ -21,18 +21,24 @@ class FavoritesRepository implements IFavoritesRepository {
 
   public async find({
     user_id,
-    movie_id,
+    entity_id,
+    type_id,
   }: IUserFavoriteDTO): Promise<UsersFavorites | undefined> {
-    const user = await this.ormRepository.findOne({ user_id, movie_id });
+    const user = await this.ormRepository.findOne({
+      user_id,
+      entity_id,
+      type_id,
+    });
 
     return user;
   }
 
   public async create({
     user_id,
-    movie_id,
+    entity_id,
+    type_id,
   }: IUserFavoriteDTO): Promise<UsersFavorites> {
-    const favorite = this.ormRepository.create({ user_id, movie_id });
+    const favorite = this.ormRepository.create({ user_id, entity_id, type_id });
     await this.ormRepository.save(favorite);
 
     return favorite;

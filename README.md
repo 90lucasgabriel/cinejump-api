@@ -1,11 +1,12 @@
 # Live API
-https://cinejump-api.herokuapp.com
+- Production: https://cinejump-api.herokuapp.com
+- Development: https://cinejump-api-dev.herokuapp.com
 
 # Authentication
 ## Login
 - **Method:** POST
 - **URI:** /auth
-- **Authorization:** 
+- **Authorization:**
 - **Headers:**
 - **Body:** raw/JSON
 ```json
@@ -14,7 +15,7 @@ https://cinejump-api.herokuapp.com
   "password": "123456"
 }
 ```
-- **Response:** 
+- **Response:**
 ```json
 {
   "user": {
@@ -24,7 +25,7 @@ https://cinejump-api.herokuapp.com
     "created_at": "2020-08-09T15:21:10.624Z",
     "updated_at": "2020-08-09T15:22:15.506Z"
   },
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTY5ODY1NDYsImV4cCI6MTU5NzA3Mjk0Niwic3ViIjoiM2Y4ODJhYjUtNzViNS00ZTI4LWE4NGEtZjg2NjYyNjRjYjI5In0.8EjwEEEXY1VeFcbMN-LHAgNIqx5bsk_yddE63lRUNaU"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTY5ODY1NDYsImV4cCI6MTU5NzA3Mjk0Niwic3ViIjoiM2Y4ODJhYjUtNzViNS00ZTI4LWE4NGEtZjg2NjYyNjRjYjI5In0.8EjwEEEXY1VeFcbMN-LHAlNIqx5bsk_xddE63lRUNaU"
 }
 ```
 
@@ -32,7 +33,7 @@ https://cinejump-api.herokuapp.com
 ## Register
 - **Method:** POST
 - **URI:** /users
-- **Authorization:** 
+- **Authorization:**
 - **Headers:**
 - **Body:** raw/JSON
 ```json
@@ -42,7 +43,7 @@ https://cinejump-api.herokuapp.com
   "password": "123456"
 }
 ```
-- **Response:** 
+- **Response:**
 ```json
 {
   "id": "2084eda5-7792-44ca-87bc-2b2d0f9dbf5a",
@@ -60,7 +61,7 @@ https://cinejump-api.herokuapp.com
 - **Authorization:** Bearer Token
 - **Headers:**
 - **Body:** none
-- **Response:** 
+- **Response:**
 ```json
 {
   "id": "3f882ab5-75b5-4e28-a84a-f8666264cb29",
@@ -86,7 +87,7 @@ https://cinejump-api.herokuapp.com
   "password_confirmation": "1234567"
 }
 ```
-- **Response:** 
+- **Response:**
 ```json
 {
   "id": "3f882ab5-75b5-4e28-a84a-f8666264cb29",
@@ -104,20 +105,22 @@ https://cinejump-api.herokuapp.com
 - **Authorization:** Bearer Token
 - **Headers:**
 - **Body:** none
-- **Response:** 
+- **Response:**
 ```json
 [
   {
     "id": "a9d5785f-9ed8-4cf4-bf87-ca5543e16f4c",
     "user_id": "3f882ab5-75b5-4e28-a84a-f8666264cb29",
-    "movie_id": "271110",
+    "entity_id": 271110,
+    "type_id": 1,
     "created_at": "2020-08-09T15:22:37.777Z",
     "updated_at": "2020-08-09T15:22:37.777Z"
   },
   {
     "id": "a9ba29ac-f3d7-46a4-a803-dc29ae82ad97",
     "user_id": "3f882ab5-75b5-4e28-a84a-f8666264cb29",
-    "movie_id": "99861",
+    "entity_id": 116,
+    "type_id": 3,
     "created_at": "2020-08-09T18:20:35.198Z",
     "updated_at": "2020-08-09T18:20:35.198Z"
   }
@@ -130,22 +133,34 @@ https://cinejump-api.herokuapp.com
 - **Authorization:** Bearer Token
 - **Headers:**
 - **Body:** raw/JSON
+  - entity_id: ID from TMDB;
+  - type_id:
+    - 1: movie;
+    - 2: tv;
+    - 3: person;
+    - 4: review;
+    - 5: company;
+    - 6: collection;
+    - 7: keyword;
 ```json
 {
-  "movie_id": "271110"
+  "entity_id": 271110,
+  "type_id": 1
 }
 ```
-- **Response - if it doesn't exist and add:** 
+- **Response (Status: 200) - if it doesn't exist and add:**
 ```json
 {
   "id": "cca1ed20-a596-47f6-845b-ca33b2f825f3",
   "user_id": "3f882ab5-75b5-4e28-a84a-f8666264cb29",
-  "movie_id": "271110",
+  "entity_id": 271110,
+  "type_id": 1,
   "created_at": "2020-08-09T18:22:53.070Z",
   "updated_at": "2020-08-09T18:22:53.070Z"
 }
 ```
 
-- **Response - if it exists and remove:** 
+- **Response (Status: 204) - if it exists and remove:**
 ```json
+no content
 ```
